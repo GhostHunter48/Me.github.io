@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #ffe6e6;
 }
 
 .container {
@@ -15,51 +15,65 @@ body {
 
 h1 {
     font-size: 3rem;
-    color: #ff3366;
+    color: #ff4081;
+    margin-bottom: 20px;
 }
 
 p {
     font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 40px;
+    color: #333;
 }
 
-.heart {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    background-color: #ff3366;
-    transform: rotate(-45deg);
-    animation: pulse 1s infinite;
+.balloons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
-.heart:before, .heart:after {
-    content: "";
-    width: 100px;
-    height: 100px;
+.balloon {
+    width: 50px;
+    height: 70px;
+    background-color: #ff4081;
     border-radius: 50%;
-    background-color: #ff3366;
+    position: relative;
+    margin: 0 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon:before {
+    content: '';
+    width: 2px;
+    height: 50px;
+    background-color: #555;
     position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.heart:before {
-    top: -50px;
-    left: 0;
+.balloon.one {
+    background-color: #ffcc00;
+    animation-duration: 4s;
 }
 
-.heart:after {
-    left: 50px;
-    top: 0;
+.balloon.two {
+    background-color: #66ccff;
+    animation-duration: 5s;
 }
 
-@keyframes pulse {
+.balloon.three {
+    background-color: #ff4081;
+    animation-duration: 3s;
+}
+
+@keyframes float {
     0% {
-        transform: scale(1) rotate(-45deg);
+        transform: translateY(0);
     }
     50% {
-        transform: scale(1.1) rotate(-45deg);
+        transform: translateY(-20px);
     }
     100% {
-        transform: scale(1) rotate(-45deg);
+        transform: translateY(0);
     }
 }
